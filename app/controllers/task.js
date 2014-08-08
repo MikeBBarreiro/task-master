@@ -1,7 +1,7 @@
 
 'use strict';
 
-var Task = require('../models/tasks');
+var Task = require('../models/task');
 
 exports.init = function(req, res){
   res.render('tasks/new');
@@ -9,13 +9,14 @@ exports.init = function(req, res){
 
 exports.index = function(req, res){
   Task.findAll(function(tasks){
+    console.log(tasks,'<<<<<<<');
     res.render('tasks/index', {tasks:tasks});
   });
 };
 
 exports.create = function(req, res){
   var p = new Task(req.body);
-  p.save(function(){
-    res.redirect('/tasks');
+  p.insert(function(){
+    res.redirect('/');
   });
 };

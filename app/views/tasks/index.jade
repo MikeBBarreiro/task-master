@@ -1,0 +1,19 @@
+extends ../shared/template
+block content
+  h2 Your Tasks
+
+  table
+    th name
+    th due date
+    th photo
+    th Complete:
+    th tags
+    th priority level
+      each task in tasks
+        tr
+          td= task.name
+          td= task.due
+          td#photo(style='background-image:url(#{task.photo}); background-size:cover;')
+          td
+          td= task.tags
+          td

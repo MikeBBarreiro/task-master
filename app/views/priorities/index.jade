@@ -1,0 +1,14 @@
+extends ../shared/template
+block content
+  h2 Your Priorities
+
+  table
+    th#check Done?
+    th Name:
+    th Value
+    each priority in priorities
+      tr
+        td#check
+        td= priority.name
+        td= priority.value
+          div#color(style='background-color:#{priority.color};')

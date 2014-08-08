@@ -24,7 +24,6 @@ Task.prototype.insert = function(cb){
 Task.update = function(id, obj, cb){
   var _id = Mongo.ObjectID(id);
   var val = (obj.isComplete) ? true : false;
-  console.log(_id);
   Task.collection.update({_id:_id}, {$set:{isComplete:val}}, cb);
 };
 
@@ -34,12 +33,13 @@ Task.findById = function(id, cb){
     cb(extend(obj));
   });
 };
-/*
-Task.findAll = function(id, cb){
-  Task.collection.findAll().toArray(function(err, objs){
-    var tasks = objs.map(funciton(t){return extend(t);});
+
+Task.findAll = function(cb){
+  Task.collection.find().toArray(function(err, objs){
+    cb(objs);
+
   });
-};*/
+};
 
 
 //Helper

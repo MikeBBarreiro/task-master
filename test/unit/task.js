@@ -68,7 +68,6 @@ describe('Task', function(){
     it('Should update, isComplete to true in DataBase', function(done){
       Task.update(t2._id.toString(), {isComplete:'true'}, function(){
         Task.findById(t2._id.toString(), function(task){
-          console.log(task);
           expect(task.isComplete).to.be.true;
             done();
         });
@@ -77,7 +76,6 @@ describe('Task', function(){
     it('Should set, isComplete to false in DataBase', function(done){
       Task.update(t2._id.toString(), {}, function(){
         Task.findById(t2._id.toString(), function(task){
-          console.log(task);
           expect(task.isComplete).to.be.false;
             done();
         });
@@ -88,9 +86,8 @@ describe('Task', function(){
   describe('.findAll', function(){
     it('Should find all tasks', function(done){
       Task.findAll(function(tasks){
-
         expect(tasks).to.have.length(2);
-        expect(tasks[0]).to.equal('high');
+        expect(tasks[0].priorityId).to.equal('high');
         done();
       });
     });

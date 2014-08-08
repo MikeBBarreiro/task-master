@@ -5,7 +5,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 //var methodOverride = require('express-method-override');
 var priorities = require('../controllers/priorities');
-var tasks = require('../controllers/tasks');
+var tasks = require('../controllers/task');
 
 module.exports = function(app, express){
   app.use(morgan('dev'));
@@ -13,12 +13,12 @@ module.exports = function(app, express){
   app.use(bodyParser.urlencoded({extended:true}));
 
   app.get('/', tasks.index);
-  app.get('/task/new', tasks.init);
-  app.post('/task/new', tasks.create);
+  app.get('/tasks/new', tasks.init);
+  app.post('/tasks/new', tasks.create);
 
-  app.get('/priorities/', priorities.index);
-  app.post('/priorities/new', priorities.init);
-  app.get('/priorities/new', priorities.create);
+  app.get('/priorities', priorities.index);
+  app.get('/priorities', priorities.init);
+  app.post('/priorities/new', priorities.create);
 
   console.log('Pipeline Configured');
 };

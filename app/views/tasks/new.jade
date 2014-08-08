@@ -1,0 +1,17 @@
+extends ../shared/template
+block content
+
+  h2 Create your tast!
+    form(method='post', action'/')
+      table
+        th Name:
+        th Due:
+        th Photo:
+        th Tags:
+        tr
+          td: input(type: 'text', name='name', placeholder='your task')
+          td: input(type='date', name='due', value='#{new Date()}')
+          td: input(type='text', name='photo', placeholder='http://')
+          td: input(type='text', name='tags', placeholder='home, clean, food')
+        tr
+          td: button ADD

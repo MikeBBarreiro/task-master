@@ -38,7 +38,7 @@ describe('Priority', function(){
 
     describe('#instert', function(){
       it('should insert a student', function(done){
-        var p = {name:'Will', color:'green'};
+        var p = {name:'Will', color:'green', value: '10'};
         var will = new Priority(p);
         will.insert(function(){
           expect(will._id).to.be.instanceof(Mongo.ObjectID);
