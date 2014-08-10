@@ -92,4 +92,14 @@ describe('Task', function(){
       });
     });
   });
-});
+
+  describe('.findById', function(){
+    it('Should find a task by id', function(done){
+      Task.findById(t2._id.toString(), function(task){
+        expect(task).to.be.instanceof(Task);
+        expect(task.name).to.equal('Bringing grandma to nursing home');
+        done();
+        });
+      });
+    });
+  });

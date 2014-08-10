@@ -35,7 +35,18 @@ describe('Priority', function(){
       expect(will.color).to.equal('green');
       });
     });
-
+    
+    describe('.create', function(){
+      it('should create a priority', function(done){
+        Priority.create({name:'High', color: 'red', value:'10'}, function(err, priority){
+          expect(priority._id).to.be.instanceof(Mongo.ObjectID);
+          expect(priority.name).to.equal('High');
+          expect(priority.color).to.equal('red');
+          expect(priority.value).to.equal(10);
+          done();
+        });
+      });
+    });
     describe('#instert', function(){
       it('should insert a student', function(done){
         var p = {name:'Will', color:'green', value: '10'};

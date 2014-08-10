@@ -13,8 +13,7 @@ exports.index = function(req, res){
 };
 
 exports.create = function(req, res){
-  var p = new Priority(req.body);
-  p.insert(function(){
+  Priority.create(req.body, function(){
     res.redirect('/priorities');
   });
 };

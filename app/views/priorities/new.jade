@@ -1,0 +1,9 @@
+extends ../shared/template
+block content
+
+  h2 Create Priority
+  form#priNew(method='post', action='/priorities')
+    input(name='name', type='text', placeholder='High,Medium,Low', autofocus=true)
+    input(name'color', type='text', value='#ff0000')
+    input(name='value', type='number', placeholder='5')
+    button Add Priority

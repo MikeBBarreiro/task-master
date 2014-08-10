@@ -17,8 +17,8 @@ module.exports = function(app, express){
   app.post('/tasks/new', tasks.create);
 
   app.get('/priorities', priorities.index);
-  app.get('/priorities', priorities.init);
-  app.post('/priorities/new', priorities.create);
+  app.get('/priorities/new', priorities.init);
+  app.post('/priorities', priorities.create);
 
   console.log('Pipeline Configured');
 };
